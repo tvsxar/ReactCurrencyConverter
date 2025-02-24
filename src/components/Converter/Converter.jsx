@@ -1,5 +1,5 @@
 import './Converter.scss';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import arrows from '../../assets/arrows.svg';
 
 function Converter() {
@@ -46,12 +46,12 @@ function Converter() {
             setAmountFrom((value * currencies[selectedCurrencyFrom] / currencies[selectedCurrencyTo]).toFixed(2))
         }
     }
-    
 
     // currency names
     const currenciesArray = Object.keys(currencies);
 
     return (
+        <div className="container">
         <div className="converter">
             <div className="currency">
                 <div className="currency-title">Amount</div>
@@ -59,7 +59,7 @@ function Converter() {
                 <div className="currency-row">
                     <select value={selectedCurrencyFrom} onChange={e => setSelectedCurrencyFrom(e.target.value)}>
                         {currenciesArray.map(currency => (
-                            <option key={currency} value={currency}>{currency}</option>
+                            <option className='option' key={currency} value={currency}>{currency}</option>
                         ))}
                     </select>
 
@@ -68,9 +68,9 @@ function Converter() {
                 </div>
             </div>
 
-            <button className='reverse-btn'>
+            <div className='reverse'>
                 <img src={arrows} alt="arrows" />
-            </button>
+            </div>
 
             <div className="currency">
                 <div className="currency-title">Converted Amount</div>
@@ -78,7 +78,7 @@ function Converter() {
                 <div className="currency-row">
                     <select value={selectedCurrencyTo} onChange={e => setSelectedCurrencyTo(e.target.value)}>
                         {currenciesArray.map(currency => (
-                            <option key={currency} value={currency}>{currency}</option>
+                            <option className='option' key={currency} value={currency}>{currency}</option>
                         ))}
                     </select>
 
@@ -86,6 +86,7 @@ function Converter() {
                      placeholder='0,00' type="number" />
                 </div>
             </div>
+        </div>
         </div>
     )
 }

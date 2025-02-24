@@ -1,4 +1,17 @@
 body {
   background: #1F1F1F;
-  color: #959595
+  color: #959595;
+}
+
+* {
+  user-select: none;
+}
+
+.container {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }

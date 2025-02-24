@@ -1,13 +1,12 @@
 .converter {
     display: flex;
     flex-direction: column;
-    position: relative;
     gap: 2rem;
     margin: 0 auto;
     max-width: 20rem;
     width: 100%;
     max-height: 30rem;
-    height: 100%;
+    height: auto;
     border-radius: 1.25rem;
     padding: 1.25rem;
     background: #fff;
@@ -25,6 +24,7 @@ select {
     color: #3C3C3C;
     font-size: 1.25rem;
     font-weight: 500;
+    cursor: pointer;
 }
 
 input {
@@ -58,32 +58,37 @@ input[type="number"] {
     }
 }
 
-.reverse-btn {
+.reverse {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
     background: #000;
     margin: 0 auto;
-    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: relative;
     z-index: 2;
 
-    img {
-        margin: 0 auto;
-
-        &rotated {
-            transform: rotate(180deg);
-        }
+    &::before {
+        content: '';
+        position: absolute;
+        background-color: #E7E7EE;
+        width: 6.5rem;
+        right: -7.1rem;
+        height: 1px;
+        z-index: 1;
     }
 
     &::after {
         content: '';
         position: absolute;
         background-color: #E7E7EE;
-        width: 18rem;
+        width: 6.5rem;
+        left: -7.1rem;
         height: 1px;
-        top: 1.5rem;
-        left: -7.6rem;
         z-index: 1;
     }
 }
